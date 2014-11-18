@@ -23,6 +23,7 @@ gem 'jquery-ui-rails', '~> 4.1.1'
 
 #versioning of model changes
 gem 'paper_trail', '~> 3.0.6'
+gem 'aasm', '~> 4.0.0'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
