@@ -16,7 +16,7 @@ class CreateProjects < ActiveRecord::Migration
       t.float :stage
       t.date :identified_on
       t.date :submitted_on
-      t.date :authroized_on
+      t.date :authorized_on
       t.date :lost_on
       t.text :comments
       t.float :probability

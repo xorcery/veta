@@ -1,0 +1,24 @@
+<table class="table table-bordered">
+<thead>
+    <tr>
+        <th>Company</th>
+        <th>Title (Description)</th>
+        <th>Project Type</th>
+        <th>RFP vs. Negotiated</th>
+        <th>New/Existing Client</th>
+        <th>Opp Owner</th>
+        <th>Total Revenue</th>
+        <th>Other Revenue</th>
+        <th>Stage</th>
+        <th>Identified</th>
+        <th>Submitted</th>
+        <th>Authorized</th>
+        <th>Lost</th>
+        <th>Comments</th>
+    </tr>
+</thead>
+
+
+<%= render partial: "project", collection: @pipeline_entries %>
+
+</table>
