@@ -1,3 +1,15 @@
+<% if @project.errors.any? %>
+  <div id="errors" class="alert alert-danger" role="alert">
+    <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+ 
+    <ul>
+    <% @project.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= simple_form_for @project, :url => url_for(:action => 'create', :controller => 'pipeline'),
     :method => 'post' do |f| %>
     <%= f.input :client %>
@@ -9,14 +21,14 @@
     <%= f.input :consulting_revenue %>
     <%= f.input :other_revenue %>
     <%= f.input :identified_on, label: "Identified", as: :date, start_year: Date.today.year - 1,
-                              end_year: Date.today.year + 2, discard_day: true,
-                              order: [:month, :year] %>
+                              end_year: Date.today.year + 2, discard_day: false,
+                              order: [:month, :day, :year] %>
     <%= f.input :submitted_on, label: "Submitted", as: :date, start_year: Date.today.year - 1,
-                              end_year: Date.today.year + 2, discard_day: true,
-                              order: [:month, :year] %>
+                              end_year: Date.today.year + 2, discard_day: false,
+                              order: [:month, :day, :year] %>
     <%= f.input :lost_on, label: "Lost", as: :date, start_year: Date.today.year - 1,
-                              end_year: Date.today.year + 2, discard_day: true,
-                              order: [:month, :year] %>
+                              end_year: Date.today.year + 2, discard_day: false,
+                              order: [:month, :day, :year] %>
     <%= f.input :start_date, as: :date, start_year: Date.today.year - 1,
                               end_year: Date.today.year + 2, discard_day: true,
                               order: [:month, :year] %>
