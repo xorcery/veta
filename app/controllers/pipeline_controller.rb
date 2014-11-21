@@ -1,7 +1,7 @@
 class PipelineController < ApplicationController
 
   def index
-    @pipeline_entries = Projects.all
+    @pipeline_entries = Project.all
   end
 
   def new
@@ -12,7 +12,7 @@ class PipelineController < ApplicationController
     @project = Project.new(project_params)
 
     if @project.save
-      redirect_to pipline_index_path
+      redirect_to pipeline_index_path
     else
       render 'new'
     end
