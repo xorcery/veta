@@ -12,18 +12,70 @@
 
 <%= simple_form_for @project, :url => url_for(:action => 'create', :controller => 'pipeline'),
     :method => 'post' do |f| %>
-    <%= f.input :client %>
-    <%= f.input :title %>
-    <%= f.input :comments, as: :text %>
-    <%= f.input :project_type %>
-    <%= f.input :rfp, label: "Is RFP", as: :boolean %>
-    <%= f.input :new_client, label: "New Client", as: :boolean %>
-    <%= f.input :consulting_revenue %>
-    <%= f.input :other_revenue %>
-    <%= f.input :identified_on, label: "Identified", as: :date_picker, required: false, placeholder: "Select date", input_html: {class: "form-control"} %>
-    <%= f.input :submitted_on, label: "Submitted", as: :date_picker, required: false, placeholder: "Select date", input_html: {class: "form-control"} %>
-    <%= f.input :lost_on, label: "Lost", as: :date_picker, required: false, placeholder: "Select date", input_html: {class: "form-control"} %>
-    <%= f.input :start_date, as: :date_picker, required: false, placeholder: "Select date", input_html: {class: "form-control"} %>
-    <%= f.input :months, collection: 1..24 %>
-    <%= f.button :submit %>
+
+    <h1 class="text-center">New Project</h1>
+
+    <div class="row">
+        <div class="col-sm-6 form-group">
+            <%= f.input :client, input_html: {class: "form-control"} %>
+        </div>
+        <div class="col-sm-6 form-group">
+            <%= f.input :title, input_html: {class: "form-control"} %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 form-group">
+            <%= f.input :comments, as: :text, input_html: {class: "form-control", rows: "4"} %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 form-group">
+            <%= f.input :project_type, input_html: {class: "form-control"} %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 form-group">
+            <label class="checkbox-inline">
+                <%= f.input_field :rfp, as: :boolean, boolean_style: :inline %>
+                <strong>Is RFP</strong>
+            </label>
+        </div>
+        <div class="col-sm-6 form-group">
+            <label class="checkbox-inline">
+                <%= f.input_field :new_client, as: :boolean, boolean_style: :inline %>
+                <strong>New Client</strong>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 form-group">
+            <%= f.input :consulting_revenue, input_html: {class: "form-control"} %>
+        </div>
+        <div class="col-sm-6 form-group">
+            <%= f.input :other_revenue, input_html: {class: "form-control"} %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 form-group">
+            <%= f.input :identified_on, label: "Identified", as: :date_picker, required: false, placeholder: "Select date", input_html: {class: "form-control"} %>
+        </div>
+        <div class="col-sm-4 form-group">
+            <%= f.input :submitted_on, label: "Submitted", as: :date_picker, required: false, placeholder: "Select date", input_html: {class: "form-control"} %>
+        </div>
+        <div class="col-sm-4 form-group">
+            <%= f.input :lost_on, label: "Lost", as: :date_picker, required: false, placeholder: "Select date", input_html: {class: "form-control"} %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 form-group">
+            <%= f.input :start_date, as: :date_picker, required: false, placeholder: "Select date", input_html: {class: "form-control"} %>
+        </div>
+        <div class="col-sm-6 form-group">
+            <%= f.input :months, collection: 1..24, input_html: {class: "form-control"} %>
+        </div>
+    </div>
+
+
+
+    <%= f.button :submit, class: "btn btn-success" %>
 <% end %>
