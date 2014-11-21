@@ -1,0 +1,25 @@
+<%= simple_form_for @project, :url => url_for(:action => 'create', :controller => 'pipeline'),
+    :method => 'post' do |f| %>
+    <%= f.input :client %>
+    <%= f.input :title %>
+    <%= f.input :comments, as: :text %>
+    <%= f.input :project_type %>
+    <%= f.input :rfp, label: "Is RFP", as: :boolean %>
+    <%= f.input :new_client, label: "New Client", as: :boolean %>
+    <%= f.input :consulting_revenue %>
+    <%= f.input :other_revenue %>
+    <%= f.input :identified_on, label: "Identified", as: :date, start_year: Date.today.year - 1,
+                              end_year: Date.today.year + 2, discard_day: true,
+                              order: [:month, :year] %>
+    <%= f.input :submitted_on, label: "Submitted", as: :date, start_year: Date.today.year - 1,
+                              end_year: Date.today.year + 2, discard_day: true,
+                              order: [:month, :year] %>
+    <%= f.input :lost_on, label: "Lost", as: :date, start_year: Date.today.year - 1,
+                              end_year: Date.today.year + 2, discard_day: true,
+                              order: [:month, :year] %>
+    <%= f.input :start_date, as: :date, start_year: Date.today.year - 1,
+                              end_year: Date.today.year + 2, discard_day: true,
+                              order: [:month, :year] %>
+    <%= f.input :months, collection: 1..24 %>
+    <%= f.button :submit %>
+<% end %>

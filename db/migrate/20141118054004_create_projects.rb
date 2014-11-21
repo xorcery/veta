@@ -4,14 +4,13 @@ class CreateProjects < ActiveRecord::Migration
       t.string :current_state
       t.string :client
       t.string :code
-      t.string :description
       t.float :gross_contract
       t.string :title
       t.string :project_type
       t.boolean :rfp
       t.boolean :new_client
       t.references :owner
-      t.float :revenue
+      t.float :other_revenue
       t.float :consulting_revenue
       t.float :stage
       t.date :identified_on
@@ -21,7 +20,7 @@ class CreateProjects < ActiveRecord::Migration
       t.text :comments
       t.float :probability
       t.date :start_date
-      t.date :end_date
+      t.integer :months
       t.timestamps
     end
   end
