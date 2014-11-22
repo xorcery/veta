@@ -23,6 +23,8 @@ $(document).ready(function() {
   /* Activating Best In Place */
   $(".best_in_place").best_in_place();
   /* Active date pickers */
-  $("input.date_picker").datepicker();
+  $("input.date_picker").datepicker({
+    dateFormat: "yy-mm-dd"
+  });
 
 });

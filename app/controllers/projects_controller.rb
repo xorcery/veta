@@ -11,9 +11,7 @@ class ProjectsController < ApplicationController
   protected
 
   def project_params
-    params.require(:project).permit(:client, :title, :comments, :project_type,
-                                    :rfp, :new_client, :consulting_revenue, :other_revenue,
-                                    :identified_on, :submitted_on, :lost_on, :start_date, :months)
+    params.require(:project).permit!
   end
 
 end

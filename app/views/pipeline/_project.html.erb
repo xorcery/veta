@@ -2,6 +2,6 @@
   <td><%= best_in_place project, :client %></td>
   <td><%= best_in_place project, :title %></td>
   <td><%= best_in_place project, :project_type %></td>
-  <td><%= best_in_place project, :rfp, :type => :checkbox, :collection => ["Negotiated", "RFP"] %></td>
-  <td><%= best_in_place project, :new_client, :type => :checkbox, :collection => ["Existing", "New"] %> </td> 
+  <td><%= best_in_place project, :rfp, as: :checkbox, collection: ["Negotiated", "RFP"] %></td>
+  <td><%= best_in_place project, :new_client, as: :checkbox, collection: ["Existing", "New"] %> </td> 
 </tr>

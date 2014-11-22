@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20141118054004) do
     t.date     "lost_on"
     t.text     "comments"
     t.float    "probability"
-    t.date     "start_date"
+    t.date     "start_on"
     t.integer  "months"
     t.datetime "created_at"
     t.datetime "updated_at"

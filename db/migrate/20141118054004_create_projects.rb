@@ -19,7 +19,7 @@ class CreateProjects < ActiveRecord::Migration
       t.date :lost_on
       t.text :comments
       t.float :probability
-      t.date :start_date
+      t.date :start_on
       t.integer :months
       t.timestamps
     end

@@ -56,19 +56,22 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-4 form-group">
+        <div class="col-sm-3 form-group">
             <%= f.input :identified_on, label: "Identified", as: :date_picker, required: false, placeholder: "Select date", input_html: {class: "form-control"} %>
         </div>
-        <div class="col-sm-4 form-group">
+        <div class="col-sm-3 form-group">
             <%= f.input :submitted_on, label: "Submitted", as: :date_picker, required: false, placeholder: "Select date", input_html: {class: "form-control"} %>
         </div>
-        <div class="col-sm-4 form-group">
+        <div class="col-sm-3 form-group">
+            <%= f.input :authorized_on, label: "Authorized", as: :date_picker, required: false, placeholder: "Select date", input_html: {class: "form-control"} %>
+        </div>
+        <div class="col-sm-3 form-group">
             <%= f.input :lost_on, label: "Lost", as: :date_picker, required: false, placeholder: "Select date", input_html: {class: "form-control"} %>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-6 form-group">
-            <%= f.input :start_date, as: :date_picker, required: false, placeholder: "Select date", input_html: {class: "form-control"} %>
+            <%= f.input :start_on, label: "Start Date", as: :date_picker, required: false, placeholder: "Select date", input_html: {class: "form-control"} %>
         </div>
         <div class="col-sm-6 form-group">
             <%= f.input :months, collection: 1..24, input_html: {class: "form-control"} %>
