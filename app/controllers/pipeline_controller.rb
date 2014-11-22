@@ -10,7 +10,6 @@ class PipelineController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    puts project_params
 
     if @project.save
       redirect_to pipeline_index_path

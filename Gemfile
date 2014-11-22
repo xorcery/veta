@@ -27,9 +27,6 @@ gem 'aasm', '~> 4.0.0'
 gem 'simple_form', '~> 3.0.1'
 gem 'best_in_place', '~> 3.0.0'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.1.3'
 
