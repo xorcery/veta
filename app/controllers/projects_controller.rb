@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     @project.update_attributes(project_params)
-    respond_with @user
+    respond_with_bip @project
   end
 
   protected
