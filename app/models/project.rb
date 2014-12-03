@@ -1,6 +1,7 @@
 class Project < ActiveRecord::Base
 
-  has_paper_trail except: [:client, :description, :title, :rfp, :new_client]
+  has_paper_trail except: [:client, :title, :rfp, :new_client, 
+                           :project_type, :code, :comments]
 
   validates :title, presence: true
   validates :client, presence: true
