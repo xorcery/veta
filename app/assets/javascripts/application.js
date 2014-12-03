@@ -19,11 +19,14 @@
 //= require_tree .
 
 $(document).ready(function() {
+
   /* Activating Best In Place */
   $(".best_in_place").best_in_place();
   /* Active date pickers */
   $("input.date_picker").datepicker();
 
   $.datepicker.setDefaults({ dateFormat: "yy-mm-dd" })
+
+
 
 });

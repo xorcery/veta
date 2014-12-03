@@ -16,4 +16,19 @@ class Project < ActiveRecord::Base
     collection
   end
 
+  def self.probability_select_collection
+    collection = Hash.new
+    (0..100).step(5) do |p|
+      collection[p / 100.0] = "#{p}%"
+    end
+    collection
+  end
+
+
+  def self.months_select_collection
+    collection = Hash.new
+    (1..24).each {|month| collection[month] = month }
+    collection
+  end
+
 end
