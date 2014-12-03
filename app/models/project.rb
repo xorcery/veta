@@ -5,7 +5,9 @@ class Project < ActiveRecord::Base
 
   validates :title, presence: true
   validates :client, presence: true
-
+  validates :other_revenue, numericality: true, allow_nil: true
+  validates :consulting_revenue, numericality: true, allow_nil: true
+  validates :gross_contract, numericality: true, allow_nil: true
 
   def self.stages
     ["Prospect", "Proposal", "Won", "Lost"]
@@ -31,5 +33,6 @@ class Project < ActiveRecord::Base
     (1..24).each {|month| collection[month] = month }
     collection
   end
+
 
 end
