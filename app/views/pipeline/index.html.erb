@@ -21,3 +21,7 @@
 <%= render partial: "project", collection: @pipeline_entries %>
 </tbody>
 </table>
+
+
+<%= button_to "Add Project", new_pipeline_path,
+      :class => "btn btn-primary btn-add", :method => :get %>
