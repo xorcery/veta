@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141201182844) do
+ActiveRecord::Schema.define(version: 20141203050508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "projects", force: true do |t|
-    t.string   "current_state"
+    t.string   "stage"
     t.string   "client"
     t.string   "code"
     t.float    "gross_contract"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20141201182844) do
     t.integer  "owner_id"
     t.float    "other_revenue"
     t.float    "consulting_revenue"
-    t.float    "stage"
     t.date     "identified_on"
     t.date     "submitted_on"
     t.date     "authorized_on"

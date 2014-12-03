@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-  respond_to :html, :json
+  respond_to :json
   
   def update
     @project = Project.find(params[:id])
