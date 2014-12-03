@@ -9,6 +9,7 @@ gem 'devise', '~> 3.3.0'
 
 # Assets
 gem 'sass-rails', '~> 4.0.3'
+gem 'modernizr-rails', '~> 2.6.2'
 gem 'bootstrap-sass', '~> 3.2.0.2'
 gem 'autoprefixer-rails', '~> 3.1.2'
 

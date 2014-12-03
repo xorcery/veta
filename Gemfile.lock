@@ -79,6 +79,7 @@ GEM
       railties (>= 3.0.0, < 5.0.0)
     mime-types (1.25.1)
     minitest (5.4.3)
+    modernizr-rails (2.6.3)
     multi_json (1.10.1)
     orm_adapter (0.5.0)
     paper_trail (3.0.6)
@@ -174,6 +175,7 @@ DEPENDENCIES
   jquery-rails (~> 3.0.4)
   jquery-ui-rails (~> 4.1.1)
   meta_request
+  modernizr-rails (~> 2.6.2)
   paper_trail (~> 3.0.6)
   pg (~> 0.17.1)
   quiet_assets

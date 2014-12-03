@@ -5,8 +5,36 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag :modernizr %>
 </head>
 <body>
+    <div class="container">
+      <div class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+          <%= link_to "Veta", pipeline_index_path, class: 'navbar-brand' %>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <%= nav_link_to 'Pipeline',          pipeline_index_path %>     
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <% if user_signed_in? -%>
+                    <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+                    <li><%= link_to 'Sign Out',     destroy_user_session_path, method: :delete %></li>
+                    <% else -%>
+                    <li><%= link_to 'Sign In', new_user_session_path %></li>
+                    <% end -%>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div>
 	<div class="container">
 		<%= yield %>
 	</div>
