@@ -1,4 +1,4 @@
-<table class="table table-bordered">
+<table class="table table-bordered table-hover">
 <thead>
     <tr>
         <th>Client</th>
@@ -17,8 +17,7 @@
         <th>Comments</th>
     </tr>
 </thead>
-
-
+<tbody>
 <%= render partial: "project", collection: @pipeline_entries %>
-
+</tbody>
 </table>
