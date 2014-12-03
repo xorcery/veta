@@ -7,7 +7,7 @@
   <td><%= best_in_place project, :owner_id, as: :select, collection: @pipeline_owners %></td>
   <td><%= best_in_place project, :consulting_revenue, :display_with => :number_to_currency %></td>
   <td><%= best_in_place project, :other_revenue, :display_with => :number_to_currency %></td>
-  <td><%= best_in_place project, :stage, as: :select, collection: Project.stages_select_collection, classes: 'stage-select' %></td>
+  <td><%= best_in_place project, :stage, as: :select, collection: Project.stages_select_collection, class: 'stage-select' %></td>
   <td><%= best_in_place project, :identified_on, as: :date, display_with: lambda { |dt| display_date(dt) }%></td>
   <td><%= best_in_place project, :submitted_on, as: :date, display_with: lambda { |dt| display_date(dt) }%></td>
   <td><%= best_in_place project, :authorized_on, as: :date, display_with: lambda { |dt| display_date(dt) }%></td>
