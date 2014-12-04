@@ -1,7 +1,7 @@
 class PipelineController < ApplicationController
 
   def index
-    @pipeline_entries = Project.pipeline.order(:client, :title)
+    @pipeline_entries = Project.pipeline
     @pipeline_owners = {}.tap{ |h| User.all.each{ |u| h[u.id] = u.first_name } }
   end
 

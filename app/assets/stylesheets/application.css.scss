@@ -14,3 +14,24 @@
   border: solid 2px #C66;
   &:first-letter { text-transform: uppercase; }
 }
+
+form {
+    margin: 10px auto;
+    max-width: 500px;
+
+    h1 {
+        margin-bottom: 20px;
+    }
+}
+
+form.button_to {
+    margin: 10px 10px;
+}
+
+table {
+    margin: 30px auto;
+}
+
+.btn-add {
+    float: left;
+}

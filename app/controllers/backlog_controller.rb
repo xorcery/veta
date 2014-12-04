@@ -1,7 +1,8 @@
 class BacklogController < ApplicationController
 
   def index
-    @pipeline_entries = Project.backlog.order(:client, :title)
+    @backlog_entries = Project.backlog
+    @backlog_owners = {}.tap{ |h| User.all.each{ |u| h[u.id] = u.first_name } }
   end
 
   def new

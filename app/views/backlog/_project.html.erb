@@ -4,7 +4,7 @@
   <td><%= best_in_place project, :project_type %></td>
   <td><%= best_in_place project, :rfp, as: :checkbox, collection: {'false' => "Negotiated", 'true' => "RFP"} %></td>
   <td><%= best_in_place project, :new_client, as: :checkbox, collection: {'false' => "Existing", 'true' => "New"} %> </td> 
-  <td><%= best_in_place project, :owner_id, as: :select, collection: @backlog_owners %></td>
+  <td><%= best_in_place project, :owner_id, as: :select, collection: @pipeline_owners %></td>
   <td><%= best_in_place project, :consulting_revenue, :display_with => :number_to_currency %></td>
   <td><%= best_in_place project, :other_revenue, :display_with => :number_to_currency %></td>
   <td><%= best_in_place project, :stage, as: :select, collection: Project.stages_select_collection, class: 'stage-select' %></td>
