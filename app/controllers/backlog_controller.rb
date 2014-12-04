@@ -1,8 +1,7 @@
-class PipelineController < ApplicationController
+class BacklogController < ApplicationController
 
   def index
-    @pipeline_entries = Project.pipeline.order(:client, :title)
-    @pipeline_owners = {}.tap{ |h| User.all.each{ |u| h[u.id] = u.first_name } }
+    @pipeline_entries = Project.backlog.order(:client, :title)
   end
 
   def new
@@ -13,7 +12,7 @@ class PipelineController < ApplicationController
     @project = Project.new(project_params)
 
     if @project.save
-      redirect_to pipeline_index_path
+      redirect_to backlog_index_path
     else
       render 'new'
     end
@@ -25,5 +24,5 @@ class PipelineController < ApplicationController
   def project_params
     params.require(:project).permit!
   end
-  
+
 end

@@ -9,6 +9,17 @@ class Project < ActiveRecord::Base
   validates :consulting_revenue, numericality: true, allow_nil: true
   validates :gross_contract, numericality: true, allow_nil: true
 
+
+  def self.pipeline
+    order(:client, :title)
+  end
+
+  def self.backlog
+    order(:client, :title)
+  end
+
+  ##SELECT collection helpers
+
   def self.stages
     ["Prospect", "Proposal", "Won", "Lost"]
   end
@@ -26,7 +37,6 @@ class Project < ActiveRecord::Base
     end
     collection
   end
-
 
   def self.months_select_collection
     collection = Hash.new
