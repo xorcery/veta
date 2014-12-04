@@ -1,30 +1,18 @@
 <table class="table table-bordered table-hover">
 <thead>
     <tr>
+        <th>Project Owner</th>
+        <th>Project Code</th>
         <th>Client</th>
         <th>Title (Description)</th>
-        <th>Project Type</th>
-        <th>RFP vs. Negotiated</th>
-        <th>New/Existing Client</th>
-        <th>Opp Owner</th>
-        <th>Consulting Revenue</th>
-        <th>Other Revenue</th>
-        <th>Stage</th>
-        <th>Identified</th>
-        <th>Submitted</th>
-        <th>Authorized</th>
-        <th>Lost</th>
-        <th>Comments</th>
-        <th>Probability</th>
-        <th>Start Date</th>
-        <th>Months</th>
+        <th>Gross Contract</th>
     </tr>
 </thead>
 <tbody>
-<%= render partial: "project", collection: @pipeline_entries %>
+<%= render partial: "project", collection: @backlog_entries %>
 </tbody>
 </table>
 
 
-<%= button_to "Add Project", new_pipeline_path,
+<%= button_to "Add Backlog Project", new_pipeline_path,
       :class => "btn btn-primary btn-add", :method => :get %>
