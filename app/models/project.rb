@@ -9,13 +9,17 @@ class Project < ActiveRecord::Base
   validates :consulting_revenue, numericality: true, allow_nil: true
   validates :gross_contract, numericality: true, allow_nil: true
 
+  belongs_to :pipeline_owner, class_name: "User"
+  belongs_to :backlog_owner, class_name: "User"
+
+  before_save :infer_gross_revenue
 
   def self.pipeline
-    order(:client, :title)
+    Project.all.order(:client, :title)
   end
 
   def self.backlog
-    order(:client, :title)
+    Project.all.order(:client, :title)
   end
 
   ##SELECT collection helpers
@@ -42,6 +46,10 @@ class Project < ActiveRecord::Base
     collection = Hash.new
     (1..24).each {|month| collection[month] = month }
     collection
+  end
+
+  def infer_gross_revenue
+    self.gross_revenue ||= self.consulting_revenue + (self.other_revenue * self.months.to_i)
   end
 
 

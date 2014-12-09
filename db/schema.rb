@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141203050508) do
+ActiveRecord::Schema.define(version: 20141205202743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20141203050508) do
     t.string   "project_type"
     t.boolean  "rfp"
     t.boolean  "new_client"
-    t.integer  "owner_id"
+    t.integer  "pipeline_owner_id"
     t.float    "other_revenue"
     t.float    "consulting_revenue"
     t.date     "identified_on"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20141203050508) do
     t.integer  "months"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "backlog_owner_id"
   end
 
   create_table "users", force: true do |t|
