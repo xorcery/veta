@@ -29,7 +29,7 @@ class BacklogController < ApplicationController
   end
 
   def backlog_owners
-    {}.tap{ |h| User.all.each{ |u| h[u.first_name] = u.id } }
+    {}.tap{ |h| User.all.each{ |u| h[u.select_name] = u.id } }
   end
 
 end
