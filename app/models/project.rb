@@ -7,12 +7,12 @@ class Project < ActiveRecord::Base
   validates :client, presence: true
   validates :other_revenue, numericality: true, allow_nil: true
   validates :consulting_revenue, numericality: true, allow_nil: true
-  validates :gross_contract, numericality: true, allow_nil: true
+  validates :gross_contract, numericality: true, if: Proc.new { |a| a.stage == 'Won' }
 
   belongs_to :pipeline_owner, class_name: "User"
   belongs_to :backlog_owner, class_name: "User"
 
-  before_save :infer_gross_revenue
+  before_validation :infer_backlog_values
 
   def self.pipeline
     Project.all.order(:client, :title)
@@ -48,8 +48,11 @@ class Project < ActiveRecord::Base
     collection
   end
 
-  def infer_gross_revenue
-    self.gross_revenue ||= self.consulting_revenue + (self.other_revenue * self.months.to_i)
+  def infer_backlog_values
+    if self.consulting_revenue.present? or self.other_revenue.present?
+      self.gross_contract ||= self.consulting_revenue.to_f + (self.other_revenue.to_f * self.months.to_i)
+    end
+    self.backlog_owner_id ||= self.pipeline_owner_id
   end
 
 

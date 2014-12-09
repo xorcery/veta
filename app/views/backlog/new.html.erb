@@ -28,7 +28,7 @@
             <%= f.input :code, label: "Project Code", input_html: {class: "form-control"} %>
         </div>
         <div class="col-sm-6 form-group">
-            <%= f.input :backlog_owner_id, label: "Owner", input_html: {class: "form-control"} %>
+            <%= f.input :backlog_owner_id, label: "Owner", allow_blank: false, input_html: {class: "form-control"} %>
         </div>
     </div>
     <div class="row">
