@@ -3,7 +3,7 @@ class Project < ActiveRecord::Base
   has_paper_trail except: [:client, :title, :rfp, :new_client, 
                            :project_type, :code, :comments]
 
-  has_many :project_backlog_months
+  has_many :backlog_months, class_name: 'ProjectBacklogMonth', autosave: true
 
   validates :title, presence: true
   validates :client, presence: true
@@ -71,6 +71,14 @@ class Project < ActiveRecord::Base
   ##Pre-saving
 
   def create_backlog_months
+    #create backlog months if we don't have any
+    if self.backlog_months.count == 0
+      #create 6 months back to 24 months forward
+      start_date = DateTime.now.beginning_of_month.advance(months: -6)
+      30.times do |month_index|
+        self.backlog_months << ProjectBacklogMonth.new(date: start_date.advance(months: month_index))
+      end
+    end
 
   end
 

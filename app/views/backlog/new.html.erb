@@ -39,13 +39,5 @@
 
     <%= f.input :stage, as: :hidden, input_html: { value: "Won" } %>
 
-    <%= f.simple_fields_for :project_backlog_months do |backlog_month_form| %>
-        <div class="row">
-            <div class="col-sm-4 form-group">
-                <%= f.input :percent_complete, label: backlog_month_form.object.date.strftime("%M/%d/%Y"), input_html: {class: "form-control"} %>
-            </div>
-        </div>
-    <% end -%>
-
     <%= f.button :submit, class: "btn btn-success" %>
 <% end %>
