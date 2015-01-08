@@ -6,6 +6,9 @@
         <th>Client</th>
         <th>Title (Description)</th>
         <th>Gross Contract</th>
+        <% @months.each do |month| %>
+        <th><%= month.strftime("%b %Y")%></th>
+        <% end -%>
     </tr>
 </thead>
 <tbody>

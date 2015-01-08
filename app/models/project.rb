@@ -33,6 +33,11 @@ class Project < ActiveRecord::Base
     Project.where(stage: 'Won')
   end
 
+  def backlog_for_month(month)
+    selected_month = self.backlog_months.select {|x| x.month === month }.first
+    selected_month ||= ProjectBacklogMonth.create(month: month.beginning_of_month, project: self)
+  end
+
   ##SELECT collection helpers
 
   def self.stages
@@ -76,7 +81,7 @@ class Project < ActiveRecord::Base
       #create 6 months back to 24 months forward
       start_date = DateTime.now.beginning_of_month.advance(months: -6)
       30.times do |month_index|
-        self.backlog_months << ProjectBacklogMonth.new(date: start_date.advance(months: month_index))
+        self.backlog_months << ProjectBacklogMonth.new(month: start_date.advance(months: month_index))
       end
     end
 

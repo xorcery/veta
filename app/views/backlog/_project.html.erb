@@ -4,4 +4,9 @@
   <td><%= best_in_place project, :client %></td>
   <td><%= best_in_place project, :title %></td>
   <td><%= best_in_place project, :gross_contract, :display_with => :number_to_currency %></td>
+  <% @months.each do |month| 
+    backlog = project.backlog_for_month(month)
+    %>
+  <td><%= best_in_place backlog, :percent_complete, :display_with => :number_to_percentage %></td>
+  <% end -%>
 </tr>

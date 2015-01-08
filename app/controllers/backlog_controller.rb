@@ -1,8 +1,13 @@
 class BacklogController < ApplicationController
 
   def index
-    @backlog_entries = Project.backlog
+    @backlog_entries = Project.backlog.includes(:backlog_months)
     @backlog_owners = backlog_owners.invert
+    @months = []
+    start_date = DateTime.now.beginning_of_month.advance(months: -6)
+    20.times do |offset|
+      @months << start_date.advance(months: offset)
+    end
   end
 
   def new
