@@ -3,23 +3,34 @@ class Project < ActiveRecord::Base
   has_paper_trail except: [:client, :title, :rfp, :new_client, 
                            :project_type, :code, :comments]
 
+  has_many :project_backlog_months
+
   validates :title, presence: true
   validates :client, presence: true
   validates :other_revenue, numericality: true, allow_nil: true
   validates :consulting_revenue, numericality: true, allow_nil: true
-  validates :gross_contract, numericality: true, if: Proc.new { |a| a.stage == 'Won' }
+  validates :gross_contract, numericality: true, if: :is_backlog?
 
   belongs_to :pipeline_owner, class_name: "User"
   belongs_to :backlog_owner, class_name: "User"
 
-  before_validation :infer_backlog_values
+  before_validation :infer_backlog_values, if: :is_backlog?
+  before_save :create_backlog_months, if: :is_backlog?
+
+  def is_backlog?
+    self.stage == 'Won'
+  end
 
   def self.pipeline
     Project.all.order(:client, :title)
   end
 
   def self.backlog
-    Project.all.order(:client, :title)
+    Project.won.order(:client, :title)
+  end
+
+  def self.won
+    Project.where(stage: 'Won')
   end
 
   ##SELECT collection helpers
@@ -48,6 +59,8 @@ class Project < ActiveRecord::Base
     collection
   end
 
+  ##Pre-validation
+
   def infer_backlog_values
     if self.consulting_revenue.present? or self.other_revenue.present?
       self.gross_contract ||= self.consulting_revenue.to_f + (self.other_revenue.to_f * self.months.to_i)
@@ -55,5 +68,10 @@ class Project < ActiveRecord::Base
     self.backlog_owner_id ||= self.pipeline_owner_id
   end
 
+  ##Pre-saving
+
+  def create_backlog_months
+
+  end
 
 end
