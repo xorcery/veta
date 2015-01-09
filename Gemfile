@@ -28,6 +28,9 @@ gem 'aasm', '~> 4.0.0'
 gem 'simple_form', '~> 3.0.1'
 gem 'best_in_place', '~> 3.0.0'
 
+#Background processing
+gem 'sidekiq', '~> 3.3.0'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.1.3'
 

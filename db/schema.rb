@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209055650) do
+ActiveRecord::Schema.define(version: 20150109224138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "prediction_results", force: true do |t|
+    t.datetime "month"
+    t.float    "maximum"
+    t.float    "minimum"
+    t.float    "upper_quartile"
+    t.float    "lower_quartile"
+    t.float    "median"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "currently_running", default: false
+  end
 
   create_table "project_backlog_months", force: true do |t|
     t.datetime "month"
