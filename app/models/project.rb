@@ -16,6 +16,7 @@ class Project < ActiveRecord::Base
 
   before_validation :infer_backlog_values, if: :is_backlog?
   before_save :create_backlog_months, if: :is_backlog?
+  after_save :update_probabilities
 
   def is_backlog?
     self.stage == 'Won'
@@ -85,6 +86,11 @@ class Project < ActiveRecord::Base
       end
     end
 
+  end
+
+  ##After-saving
+  def update_probabilities
+    #ProbabilityRangeWorker.perform_async
   end
 
 end
