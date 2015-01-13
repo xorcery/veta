@@ -11,8 +11,8 @@ class MonthRangeWorker
 
     month = result.month
     current_and_future_projects = Project.where("start_on >= ?", month)
-    pipeline_projects = current_and_future_projects.where(stage: 'Won')
-    backlog_projects = current_and_future_projects.where("stage <> 'Won'")
+    pipeline_projects = current_and_future_projects.where("stage <> 'Won'").where("probability > 0")
+    backlog_projects = current_and_future_projects.where(stage: 'Won')
 
     #filter down to active projects
     pipeline_projects.select! { |project| project.start_on.advance(months: project.months) <= month }
@@ -60,7 +60,7 @@ class MonthRangeWorker
   def pipeline_predictions_for_projects(projects, month)
     predictions = []
     10000.times do |index| #run randomized prediction generation 10000 times for Monte Carlo
-      prediction = projects.inject(0) {|sum, project| sum + pipeline_prediction_for_project(projects, month) }
+      prediction = projects.inject(0) {|sum, project| sum + pipeline_prediction_for_project(project, month) }
       predictions << prediction
     end
 
@@ -70,7 +70,7 @@ class MonthRangeWorker
 
   def pipeline_prediction_for_project(project, month)
     #only roll probability if the month is in the project
-    if month >= project.start_on and month <= month.advance(months: project.months)
+    if project.start_on.present? and month >= project.start_on and month <= project.start_on.advance(months: project.months)
       #roll the dice on the probability of the project and if we hit it then return
       #the contract divided by number of months
       if @random_number_generator.rand < project.probability

@@ -90,7 +90,7 @@ class Project < ActiveRecord::Base
 
   ##After-saving
   def update_probabilities
-    #ProbabilityRangeWorker.perform_async
+    ProbabilityRangeWorker.perform_async
   end
 
 end
