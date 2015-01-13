@@ -37,6 +37,11 @@ gem 'jbuilder', '~> 2.1.3'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
+#Web Server
+gem 'sinatra', require: false
+gem 'slim'
+  gem 'unicorn'
+
 group :development do
   gem 'quiet_assets'
   gem 'better_errors'
@@ -47,7 +52,6 @@ group :development do
 end
 
 group :production do
-  gem 'unicorn'
   gem 'rails_12factor'
 end
 
