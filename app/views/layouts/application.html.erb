@@ -6,6 +6,9 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <%= javascript_include_tag :modernizr %>
+  <% if content_for? :javascript_includes %>
+    <%= yield :javascript_includes %>
+  <% end %>
 </head>
 <body>
     <div class="container">
@@ -17,7 +20,8 @@
           <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
                 <%= nav_link_to 'Pipeline', pipeline_index_path %> 
-                <%= nav_link_to 'Backlog', backlog_index_path %>        
+                <%= nav_link_to 'Backlog', backlog_index_path %>
+                <%= nav_link_to 'Projections', projections_path %>               
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 

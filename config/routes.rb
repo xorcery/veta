@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   resources :projects, only: [:update]
   resources :project_backlog_months, only: [:update]
 
+  resources :projections, only: [:index]
+
   sidekiq_constraint = lambda do |request|
     request.env['warden'].authenticate?
   end

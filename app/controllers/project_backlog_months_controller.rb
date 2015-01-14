@@ -1,5 +1,7 @@
 class ProjectBacklogMonthsController < ApplicationController
 
+  before_filter :authenticate_user!
+
   respond_to :json
   
   def update

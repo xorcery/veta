@@ -1,0 +1,47 @@
+<% content_for :javascript_includes do %>
+<script>
+$(function () {
+    $('#predictions').highcharts({
+
+        chart: {
+            type: 'boxplot'
+        },
+        credits: {
+            enabled: false
+        },
+
+        title: {
+            text: 'Revenue Range Projections'
+        },
+
+        legend: {
+            enabled: false
+        },
+
+        xAxis: {
+            categories: <%= raw @series_labels.to_json %>,
+            title: {
+                text: 'Month'
+            }
+        },
+
+        yAxis: {
+            title: {
+                text: 'Revenue'
+            }
+        },
+
+        series: [{
+            name: 'Revenue',
+            data: <%= raw @series_data.to_json %>,
+            tooltip: {
+                headerFormat: '<em>{point.key}</em><br/>'
+            }
+        }]
+
+    });
+});
+</script>
+<% end -%>
+
+<div id="predictions" class="box-chart"></div>

@@ -18,6 +18,9 @@
 //= require best_in_place.jquery-ui
 //= require jquery.purr
 //= require best_in_place.purr
+//= require highcharts
+//= require highcharts/highcharts-more
+//= require highcharts/modules/exporting
 //= require_tree .
 
 $(document).ready(function() {

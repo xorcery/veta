@@ -1,5 +1,7 @@
 class PipelineController < ApplicationController
 
+  before_filter :authenticate_user!
+
   def index
     @pipeline_entries = Project.pipeline
     @pipeline_owners = pipeline_owners.invert

@@ -40,7 +40,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 #Web Server
 gem 'sinatra', require: false
 gem 'slim'
-  gem 'unicorn'
+gem 'unicorn'
+
+#Charting
+gem "highcharts-rails", "~> 4.0"
 
 group :development do
   gem 'quiet_assets'

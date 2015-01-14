@@ -1,5 +1,7 @@
 class BacklogController < ApplicationController
 
+  before_filter :authenticate_user!
+
   def index
     @backlog_entries = Project.backlog.includes(:backlog_months)
     @backlog_owners = backlog_owners.invert
