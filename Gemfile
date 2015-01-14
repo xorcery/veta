@@ -45,6 +45,11 @@ gem 'unicorn'
 #Charting
 gem "highcharts-rails", "~> 4.0"
 
+#Deployment
+gem 'mina'
+gem 'mina-sidekiq', :require => false
+gem 'mina-unicorn', :require => false
+
 group :development do
   gem 'quiet_assets'
   gem 'better_errors'
