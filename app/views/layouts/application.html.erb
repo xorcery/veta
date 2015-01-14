@@ -18,11 +18,13 @@
           <%= link_to "Veta", pipeline_index_path, class: 'navbar-brand' %>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
+              <% if user_signed_in? -%>
               <ul class="nav navbar-nav">
                 <%= nav_link_to 'Pipeline', pipeline_index_path %> 
                 <%= nav_link_to 'Backlog', backlog_index_path %>
                 <%= nav_link_to 'Projections', projections_path %>               
               </ul>
+              <% end -%>
               <ul class="nav navbar-nav navbar-right">
                 
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
