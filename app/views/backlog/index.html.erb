@@ -1,4 +1,4 @@
-<table class="table table-bordered table-hover">
+<table class="table table-bordered table-hover tablesorter">
 <thead>
     <tr>
         <th>Project Owner</th>
@@ -9,6 +9,7 @@
         <% @months.each do |month| %>
         <th><%= month.strftime("%b %Y")%></th>
         <% end -%>
+        <th></th>
     </tr>
 </thead>
 <tbody>

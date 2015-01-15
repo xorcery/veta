@@ -9,4 +9,5 @@
     %>
   <td><%= best_in_place backlog, :percent_complete, :display_with => :number_to_percentage %></td>
   <% end -%>
+  <td><%= link_to "Changelog", project_changelogs_path(project) %>
 </tr>

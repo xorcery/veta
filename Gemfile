@@ -22,7 +22,6 @@ gem 'jquery-ui-rails', '~> 4.1.1'
 
 #versioning of model changes
 gem 'paper_trail', '~> 3.0.6'
-gem 'aasm', '~> 4.0.0'
 
 # Display utilities
 gem 'simple_form', '~> 3.0.1'
@@ -42,8 +41,9 @@ gem 'sinatra', require: false
 gem 'slim'
 gem 'unicorn'
 
-#Charting
+#javascript libraries
 gem "highcharts-rails", "~> 4.0"
+gem "jquery-tablesorter", "~> 1.13.4"
 
 #Deployment
 gem 'mina'

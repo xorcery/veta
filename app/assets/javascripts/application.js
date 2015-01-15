@@ -21,6 +21,7 @@
 //= require highcharts
 //= require highcharts/highcharts-more
 //= require highcharts/modules/exporting
+//= require jquery-tablesorter
 //= require_tree .
 
 $(document).ready(function() {
@@ -32,6 +33,6 @@ $(document).ready(function() {
 
   $.datepicker.setDefaults({ dateFormat: "yy-mm-dd" })
 
-
+  $(".tablesorter").tablesorter();
 
 });
