@@ -54,6 +54,9 @@ task :setup => :environment do
   queue! %[touch "#{deploy_to}/shared/config/secrets.yml"]
   queue %[echo "-----> Be sure to edit 'shared/config/secrets.yml'."]
 
+  queue! %[touch "#{deploy_to}/shared/config/sendgrid.yml"]
+  queue  %[echo "-----> Be sure to edit 'shared/config/sendgrid.yml'."]
+
   # pid files and log files for services
   queue! %[mkdir -p "#{deploy_to}/shared/pids/"]
   queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/pids"]
