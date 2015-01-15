@@ -39,6 +39,10 @@ class Project < ActiveRecord::Base
     selected_month ||= ProjectBacklogMonth.create(month: month.beginning_of_month, project: self)
   end
 
+  def total_revenue
+    other_revenue.to_f + consulting_revenue.to_f
+  end
+
   ##SELECT collection helpers
 
   def self.stages

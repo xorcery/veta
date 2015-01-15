@@ -74,12 +74,12 @@ class MonthRangeWorker
     #only roll probability if the month is in the project
     if month.end_of_month >= project.start_on and 
        month.beginning_of_month <= project.start_on.advance(months: project.months) and
-       project.consulting_revenue.to_f > 0
+       project.total_revenue.to_f > 0
         #roll the dice on the probability of the project and if we hit it then return
         #the contract divided by number of months
         random = @random_number_generator.rand
         if random < project.probability
-          project.consulting_revenue / project.months.to_f
+          project.total_revenue / project.months.to_f
         else
           0
         end
