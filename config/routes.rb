@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :pipeline, only: [:index, :new, :create]
   resources :backlog, only: [:index, :new, :create]
 
-  resources :projects, only: [:update]
+  resources :projects, only: [:update] do 
+    resources :changelogs, only: [:index]
+  end
   resources :project_backlog_months, only: [:update]
 
   resources :projections, only: [:index]
