@@ -16,4 +16,5 @@
   <td><%= best_in_place project, :probability, as: :select, collection: Project.probability_select_collection %></td>
   <td><%= best_in_place project, :start_on, as: :date, display_with: lambda { |dt| display_date(dt) } %></td>
   <td><%= best_in_place project, :months, as: :select, collection: Project.months_select_collection %></td>
+  <td><%= link_to "Changelog", project_changelogs_path(project) %>
 </tr>

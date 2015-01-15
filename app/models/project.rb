@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
 
   has_paper_trail except: [:client, :title, :rfp, :new_client, 
-                           :project_type, :code, :comments]
+                           :project_type, :code, :comments, :updated_at]
 
   has_many :backlog_months, class_name: 'ProjectBacklogMonth', autosave: true
 
