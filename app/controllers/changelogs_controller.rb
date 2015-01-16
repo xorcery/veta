@@ -2,7 +2,7 @@ class ChangelogsController < ApplicationController
 
   def index
     @project = Project.find(params[:project_id])
-    @changes = @project.versions.order("created_at desc").map do |version|
+    @changes = @project.versions.where("whodunnit IS NOT NULL").order("created_at desc").map do |version|
       user = User.find(version.whodunnit)
 
       if version.event == 'create'
